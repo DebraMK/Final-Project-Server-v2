@@ -1,20 +1,22 @@
 const express = require('express')
-const location = require('./controllers/location')
 const cors = require('cors')
 require('dotenv').config()
 
-
-const placesRoutes = require('./controllers/places')
-
-const app = express()
+const location = require('./routes/location')
+const thisRoute = require('./routes/thisRoute')
 
 // middlewares
+const app = express()
 app.use(cors())
+app.use(express.json());
+
+//Test
+app.get('/', (req, res) => {
+    res.send('Where the hell do you want to eat')
+})
 
 // routes
 app.use('/location', location )
-
-
 
 // database connection
 
