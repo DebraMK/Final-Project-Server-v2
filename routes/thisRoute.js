@@ -1,6 +1,6 @@
-const router = require('express').Router()
-const { getRestaurants } = require('../controllers/thisController')
+// const router = require('express').Router()
+// const { getRestaurants } = require('../controllers/thisController')
 
-router.get('/all', getRestaurants)
+// router.get('/all', getRestaurants)
 
-module.exports = routergit
+// module.exports = routergit
