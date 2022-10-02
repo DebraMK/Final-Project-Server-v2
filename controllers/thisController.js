@@ -1,9 +1,9 @@
-const Restaurant = require('../models/thisModel')
+// const Restaurant = require('../models/thisModel')
 
-function getRestaurants(req, res) {
-    res.send('restaurants')
-}
+// function getRestaurants(req, res) {
+//     res.send('restaurants')
+// }
 
-module.exports = {
-    getRestaurants
-}
+// module.exports = {
+//     getRestaurants
+// }

@@ -1,16 +1,15 @@
 const express = require('express')
-require('dotenv').config()
+const cors = require ('cors')
 
-const thisRoute = require('./routes/thisRoute')
+
+const placesRoutes = require('./controllers/places')
 
 const app = express()
 
 // middlewares
 
 // routes
-app.use('/restaurant', thisRoute)
-
-
+app.use('/place', placesRoute)
 
 // database connection
 
