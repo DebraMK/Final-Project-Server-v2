@@ -5,8 +5,9 @@ require('dotenv').config()
 const location = require('./routes/location')
 const thisRoute = require('./routes/thisRoute')
 
-// middlewares
 const app = express()
+
+// middlewares
 app.use(cors())
 app.use(express.json());
 
