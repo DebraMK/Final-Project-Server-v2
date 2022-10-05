@@ -2,11 +2,11 @@ const router = require('express').Router()
 const axios = require('axios')
 require('dotenv').config()
 
-router.get('/:places', async (req, res) => {
+router.get('/cuisine/:places', async (req, res) => {
     const { places } = req.params
-    const { data } = await axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=42.2133971%2C-89.0645187&radius=10000&type=restaurant&keyword=${places}&key=${process.env.REACT_APP_API_KEY}`)
+    console.log(req.query)
+    const { data } = await axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${req.query.lat}%2C${req.query.lng}&radius=10000&type=restaurant&keyword=${places}&key=${process.env.REACT_APP_API_KEY}=`)
     res.json(data)
-    //res.send("hello")
 })
 
 module.exports = router

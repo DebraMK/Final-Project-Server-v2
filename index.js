@@ -1,15 +1,21 @@
-const express = require('express')
-const cors = require('cors')
 require('dotenv').config()
-
-const location = require('./routes/location')
-const thisRoute = require('./routes/thisRoute')
+const express = require('express')
+const bodyParser = require('body-parser')
+const cors = require('cors')
 
 const app = express()
 
-// middlewares
+const location = require('./routes/location')
+const signUp = require('./routes/Signup')
+const sequelize = require('./config/config')
+
+
+// middleware
 app.use(cors())
 app.use(express.json());
+app.use(express.static('public'))
+app.use(express.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
 //Test
 app.get('/', (req, res) => {
@@ -19,7 +25,6 @@ app.get('/', (req, res) => {
 // routes
 app.use('/location', location )
 
-// database connection
 
 
 const PORT = process.env.PORT
