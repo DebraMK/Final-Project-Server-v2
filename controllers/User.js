@@ -64,7 +64,7 @@ function verifyJWT (req, res){
     return;
 }
 
-//user validation - test
+//user validation - test :any route that will require you to prove ID
 function authRoute(req, res){
     res.send("I sent you a message")
 };
