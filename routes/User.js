@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const { signUp, authRoute, logIn, userProfile } = require('../controllers/User')
+const { signUp, authRoute, logIn, userProfile, register } = require('../controllers/User')
 const { validateJWT } = require('../middleware/auth')
 
 router.get('/', async (req, res) => {
@@ -9,17 +9,20 @@ router.get('/', async (req, res) => {
     res.json(users);
 })
 
-//Creates a user
+//POST: Creates a user
 router.post('/signup', signUp)
 
-//user validation
+//GET: user validation
 router.get('/authenticated-route', validateJWT, authRoute)
 
-//Login 
+//POST: Login 
 router.post('/login', logIn)
 
-//GET profile 
+//GET: profile 
 router.get('/profile', validateJWT, userProfile)
+
+//temp route
+router.post('/register', register)
 
 
 

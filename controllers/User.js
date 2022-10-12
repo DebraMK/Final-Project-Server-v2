@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 
 //creates a new user
 async function signUp(req, res){
-    const { username, password } = req.body
+    const { name, email, password } = req.body;
 
     const user = await new User({
         username, //key and value are the same so no need to reference value
@@ -20,6 +20,31 @@ async function signUp(req, res){
 
     res.send(token)
 };
+
+//temp route
+function register (req, res) {
+    //console.log(req.body);
+    const { name, email, password } = req.body;
+    User.findOne({ email: email }, (err, user) => {
+        if (user) {
+          res.send({ message: "user already exist" });
+        } else {
+              const user = new User({ name, email, password });
+              user.save((err) => {
+                if (err) {
+                    res.send(err);
+                } else {
+                    res.send({ message: "sucessfull" });
+                }
+              })
+            };
+    });
+};
+
+
+
+
+
 
 
 //login
@@ -84,5 +109,6 @@ module.exports = {
     authRoute,
     logIn, 
     verifyJWT, 
-    userProfile
+    userProfile,
+    register
 }
