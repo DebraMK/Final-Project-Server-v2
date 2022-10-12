@@ -75,7 +75,7 @@ async function userProfile(req, res){
 
     const user = await User.find({ username }).populate('profile') //TODO create an object with profile data to send back and creat a profile page
 
-    //res.send(username)
+    res.send(username)
 }
 
 

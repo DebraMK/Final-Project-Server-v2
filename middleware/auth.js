@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken')
 
+
+//authentication
 function validateJWT(req, res, next){
     const authHeader = req.headers['authorization']
 
